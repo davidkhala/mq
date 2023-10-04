@@ -1,0 +1,23 @@
+- `confluent-operator
+  - Type: Deployment
+- `connect`
+  - Type: Stateful Set
+  - pods have warnnings
+- `controlcenter`
+  - Type: Stateful Set
+  - pods have warnnings
+- `elastic`
+  - Type: Stateful Set
+- `kafka`
+  - Type: Stateful Set
+- `kafkarestproxy`
+  - Type: Stateful Set
+- `kraftcontroller`
+  - Type: Stateful Set
+- `ksqldb`
+  - Type: Stateful Set
+  - pods have warnnings
+- `schemaregistry`
+  - Type: Stateful Set
+# from GKE Autopilot
+  - 
