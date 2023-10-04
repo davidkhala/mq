@@ -1,11 +1,11 @@
-- `confluent-operator
+- `confluent-operator`
   - Type: Deployment
 - `connect`
   - Type: Stateful Set
-  - pods have warnnings
+  - CrashLoopBackOff
 - `controlcenter`
   - Type: Stateful Set
-  - pods have warnnings
+  - CrashLoopBackOff
 - `elastic`
   - Type: Stateful Set
 - `kafka`
