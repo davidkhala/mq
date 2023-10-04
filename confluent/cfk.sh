@@ -12,13 +12,29 @@ prepare-gke() {
   gcloud container clusters create-auto ${clusterName} --region ${region}
   gcloud container clusters get-credentials ${clusterName} --region ${region}
 }
-start() {
+start-single(){
+  pre-start
+  kubectl apply -f https://raw.githubusercontent.com/confluentinc/confluent-kubernetes-examples/master/quickstart-deploy/kraft-quickstart/confluent-platform-singlenode.yaml
+  kubectl apply -f https://raw.githubusercontent.com/confluentinc/confluent-kubernetes-examples/master/quickstart-deploy/kraft-quickstart/producer-app-data-singlenode.yaml
+}
+stop-single(){
+  kubectl delete -f https://raw.githubusercontent.com/confluentinc/confluent-kubernetes-examples/master/quickstart-deploy/kraft-quickstart/confluent-platform-singlenode.yaml
+  kubectl delete -f https://raw.githubusercontent.com/confluentinc/confluent-kubernetes-examples/master/quickstart-deploy/kraft-quickstart/producer-app-data-singlenode.yaml
+  post-stop
+
+}
+pre-start(){
   kubectl create namespace confluent
   kubectl config set-context --current --namespace confluent
   helm repo add confluentinc https://packages.confluent.io/helm
   helm repo update
-  helm upgrade --install confluent-operator confluentinc/confluent-for-kubernetes --set kRaftEnabled=true
+  helm upgrade --install confluent-operator confluentinc/confluent-for-kubernetes
 
+  # helm upgrade --install confluent-operator confluentinc/confluent-for-kubernetes --set kRaftEnabled=true
+
+}
+start() {
+  pre-start
   kubectl apply -f https://raw.githubusercontent.com/confluentinc/confluent-kubernetes-examples/master/quickstart-deploy/kraft-quickstart/confluent-platform.yaml
   kubectl apply -f https://raw.githubusercontent.com/confluentinc/confluent-kubernetes-examples/master/quickstart-deploy/kraft-quickstart/producer-app-data.yaml
 
@@ -26,9 +42,13 @@ start() {
 port-expose() {
   kubectl port-forward controlcenter-0 9021:9021
 }
-stop() {
-  kubectl delete -f https://raw.githubusercontent.com/confluentinc/confluent-kubernetes-examples/master/quickstart-deploy/kraft-quickstart/producer-app-data.yaml
-  kubectl delete -f https://raw.githubusercontent.com/confluentinc/confluent-kubernetes-examples/master/quickstart-deploy/kraft-quickstart/confluent-platform.yaml
+post-stop(){
   helm uninstall confluent-operator
   kubectl delete namespace confluent
 }
+stop() {
+  kubectl delete -f https://raw.githubusercontent.com/confluentinc/confluent-kubernetes-examples/master/quickstart-deploy/kraft-quickstart/producer-app-data.yaml
+  kubectl delete -f https://raw.githubusercontent.com/confluentinc/confluent-kubernetes-examples/master/quickstart-deploy/kraft-quickstart/confluent-platform.yaml
+  post-stop
+}
+$@
