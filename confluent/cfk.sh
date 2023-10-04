@@ -14,6 +14,8 @@ prepare-gke() {
 }
 start-single(){
   pre-start
+  helm upgrade --install confluent-operator confluentinc/confluent-for-kubernetes
+  
   kubectl apply -f https://raw.githubusercontent.com/confluentinc/confluent-kubernetes-examples/master/quickstart-deploy/confluent-platform-singlenode.yaml
   kubectl apply -f https://raw.githubusercontent.com/confluentinc/confluent-kubernetes-examples/master/quickstart-deploy/producer-app-data-singlenode.yaml
 }
@@ -28,13 +30,12 @@ pre-start(){
   kubectl config set-context --current --namespace confluent
   helm repo add confluentinc https://packages.confluent.io/helm
   helm repo update
-  helm upgrade --install confluent-operator confluentinc/confluent-for-kubernetes
-
-  # helm upgrade --install confluent-operator confluentinc/confluent-for-kubernetes --set kRaftEnabled=true
-
+  
 }
 start() {
   pre-start
+  helm upgrade --install confluent-operator confluentinc/confluent-for-kubernetes --set kRaftEnabled=true
+  
   kubectl apply -f https://raw.githubusercontent.com/confluentinc/confluent-kubernetes-examples/master/quickstart-deploy/kraft-quickstart/confluent-platform.yaml
   kubectl apply -f https://raw.githubusercontent.com/confluentinc/confluent-kubernetes-examples/master/quickstart-deploy/kraft-quickstart/producer-app-data.yaml
 
