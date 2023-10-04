@@ -16,7 +16,6 @@
   - Type: Stateful Set
 - `ksqldb`
   - Type: Stateful Set
-  - pods have warnnings
 - `schemaregistry`
   - Type: Stateful Set
 # from GKE Autopilot
