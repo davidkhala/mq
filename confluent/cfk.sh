@@ -8,9 +8,9 @@ k8sNamespace=${namespace:-confluent}
 prepare-gke() {
   clusterName=${cluster:-confluent}
   region=${region:-asia-east2}
-  # default n2-standard-4 quota is 8 vcpus. Need to request
-  gcloud container clusters create ${clusterName} --machine-type n2-standard-4 --disk-type pd-standard --num-nodes 3 --region $region
-  gcloud container clusters get-credentials ${clusterName} --region $region
+  
+  gcloud container clusters create-auto ${clusterName} --region ${region}
+  gcloud container clusters get-credentials ${clusterName} --region ${region}
 }
 start() {
   kubectl create namespace confluent
