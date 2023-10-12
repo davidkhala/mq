@@ -5,6 +5,7 @@ A non-SaaS, on-prem version.
 
 ## [installation](https://www.confluent.io/installation/)
 Confluent for Kubernetes (CFK): A cloud-native control plane for deploying and managing Confluent in private cloud environments through declarative API.
-- [Hardware requirement](https://docs.confluent.io/platform/current/installation/system-requirements.html#on-premises)
+- Prepare k8s cluster
+   - [Cluster sizing](https://docs.confluent.io/operator/current/co-plan.html#cluster-sizing)
 - [quick-start](https://docs.confluent.io/operator/current/co-quickstart.html)
-   - not that quick: [Prepare Kubernetes Cluster]()
+  
