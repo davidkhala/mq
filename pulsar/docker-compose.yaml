@@ -25,24 +25,6 @@ services:
       timeout: 5s
       retries: 30
 
-  # Init cluster metadata
-  pulsar-init:
-    container_name: pulsar-init
-    hostname: pulsar-init
-    image: apachepulsar/pulsar:latest
-    networks:
-      - pulsar
-    command: >
-      bin/pulsar initialize-cluster-metadata \
-               --cluster cluster-a \
-               --zookeeper zookeeper:2181 \
-               --configuration-store zookeeper:2181 \
-               --web-service-url http://broker:8080 \
-               --broker-service-url pulsar://broker:6650
-    depends_on:
-      zookeeper:
-        condition: service_healthy
-
   # Start bookie
   bookie:
     image: apachepulsar/pulsar:latest
@@ -61,12 +43,10 @@ services:
     depends_on:
       zookeeper:
         condition: service_healthy
-      pulsar-init:
-        condition: service_completed_successfully
     # Map the local directory to the container to avoid bookie startup failure due to insufficient container disks.
     volumes:
       - ./data/bookkeeper:/pulsar/data/bookkeeper
-    command: bash -c "bin/apply-config-from-env.py conf/bookkeeper.conf && exec bin/pulsar bookie"
+    command: bash -c "bin/pulsar initialize-cluster-metadata --cluster cluster-a --zookeeper zookeeper:2181 --configuration-store zookeeper:2181 --web-service-url http://broker:8080 --broker-service-url pulsar://broker:6650 && bin/apply-config-from-env.py conf/bookkeeper.conf && exec bin/pulsar bookie"
 
   # Start broker
   broker:
