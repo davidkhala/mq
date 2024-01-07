@@ -1,0 +1,18 @@
+# --shm-size=2g 
+services:
+  solace:
+    image: solace/solace-pubsub-standard
+    container_name: solace
+    environment:
+      - username_admin_password=admin
+      - username_admin_globalaccesslevel=admin
+    ports:
+      - 8080
+      - 55555
+      - 1883
+      - 8000
+      - 5672
+      - 8008:8008
+      - 9000
+      - 2222
+    shm_size: '2gb'
