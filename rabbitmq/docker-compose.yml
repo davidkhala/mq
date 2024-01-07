@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 
 services:
   rabbitmq:
@@ -11,6 +11,6 @@ services:
     volumes:
       - 'rabbitmq:/bitnami/rabbitmq/mnesia'
     environment:
-      RABBITMQ_MANAGEMENT_ALLOW_WEB_ACCESS: true
+      - RABBITMQ_MANAGEMENT_ALLOW_WEB_ACCESS=true
 volumes:
   rabbitmq:

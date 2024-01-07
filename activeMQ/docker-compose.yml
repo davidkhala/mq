@@ -1,0 +1,10 @@
+services:
+  activemq-mysql:
+    image: davidkhala/activemq-mysql
+    ports:
+      - 61616
+      - 8161
+      - 5672
+      - 61613:61613
+      - 1883
+      - 61614:61614
