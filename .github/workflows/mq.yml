@@ -1,0 +1,22 @@
+name: mq
+on:
+  push:
+
+jobs:
+  activemq:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: activeMQ
+    steps:
+      - uses: actions/checkout@main
+      - run: docker compose up -d
+      
+  rabbitmq:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: rabbitmq
+    steps:
+      - uses: actions/checkout@main
+      - run: docker compose up -d
