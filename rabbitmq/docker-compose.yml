@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  rabbitmq:
+    image: 'bitnami/rabbitmq:latest' # see in https://hub.docker.com/r/bitnami/rabbitmq
+    ports:
+      - 4369
+      - '5672:5672'
+      - 25672
+      - 15672
+    volumes:
+      - 'rabbitmq:/bitnami/rabbitmq/mnesia'
+    environment:
+      RABBITMQ_MANAGEMENT_ALLOW_WEB_ACCESS: true
+volumes:
+  rabbitmq:
