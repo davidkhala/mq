@@ -1,5 +1,5 @@
 # mq
 message queue collection
 
-## Github Repository
+## Related Github Repository
 - https://github.com/davidkhala/node-mq
