@@ -1,3 +1,5 @@
+# Confluent Cloud
+[You cannot delete the last one environment.](https://docs.confluent.io/cloud/current/access-management/hierarchy/cloud-environments.html#delete-an-environment)
 
 # Confluent Platform
 A non-SaaS, on-prem version.
