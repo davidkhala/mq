@@ -9,7 +9,7 @@ networks:
     driver: bridge
 services:
   kafka-0:
-    image: docker.io/bitnami/kafka:3.6
+    image: docker.io/bitnami/kafka:latest
     ports:
       - 9092:9092
     environment:
@@ -33,7 +33,7 @@ services:
     networks:
       - kafka
   kafka-1:
-    image: docker.io/bitnami/kafka:3.6
+    image: docker.io/bitnami/kafka:latest
     environment:
       # KRaft settings
       - KAFKA_CFG_NODE_ID=1
@@ -55,7 +55,7 @@ services:
     networks:
       - kafka
   kafka-2:
-    image: docker.io/bitnami/kafka:3.6
+    image: docker.io/bitnami/kafka:latest
     environment:
       # KRaft settings
       - KAFKA_CFG_NODE_ID=2

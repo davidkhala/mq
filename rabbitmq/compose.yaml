@@ -13,7 +13,7 @@ services:
     environment:
       - RABBITMQ_MANAGEMENT_ALLOW_WEB_ACCESS=true
     healthcheck:
-      test: rabbitmq-diagnostics -q ping
+      test: rabbitmqctl await_startup
       interval: 1s
     
 volumes:

@@ -3,20 +3,18 @@ on:
   push:
 
 jobs:
-  activemq:
+  mq:
     runs-on: ubuntu-latest
-    defaults:
-      run:
+    steps:
+      - uses: actions/checkout@main
+      - run: docker compose up -d
         working-directory: activeMQ
-    steps:
-      - uses: actions/checkout@main
       - run: docker compose up -d
-      
-  rabbitmq:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
         working-directory: rabbitmq
+      
+  kafka:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@main
       - run: docker compose up -d
+        working-directory: kafka/bitnami
