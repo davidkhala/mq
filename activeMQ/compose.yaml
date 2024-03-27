@@ -1,10 +1,11 @@
 services:
-  activemq-mysql:
-    image: davidkhala/activemq-mysql
+  artemis:
+    container_name: artemis
+    image: apache/activemq-artemis:latest-alpine
     ports:
       - 61616
-      - 8161
+      - 8161:8161 # web management console
       - 5672
       - 61613:61613
       - 1883
-      - 61614:61614
+      - 61614
