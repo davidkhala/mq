@@ -1,5 +1,6 @@
 
 list(){
-  ${path2kafka_installation}/bin/kafka-topics.sh
+  ${path2kafkaInstallation}/bin/kafka-topics.sh --list --bootstrap-server ${BootstrapServerString} --command-config client.properties
+
 }
 $@
