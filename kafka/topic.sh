@@ -4,7 +4,7 @@ list(){
 
 }
 list-messages(){
-  ${path2kafkaInstallation}/bin/kafka-console-consumer.sh --topic $1 --from-beginning --bootstrap-server ${BootstrapServerString} --command-config ${path2kafkaInstallation}/bin/client.properties
+  ${path2kafkaInstallation}/bin/kafka-console-consumer.sh --topic $1 --from-beginning --bootstrap-server ${BootstrapServerString} --consumer.config ${path2kafkaInstallation}/bin/client.properties
 }
 
 $@
