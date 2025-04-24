@@ -13,4 +13,5 @@ Confluent for Kubernetes (CFK): A cloud-native control plane for deploying and m
    - [Cluster sizing](https://docs.confluent.io/operator/current/co-plan.html#cluster-sizing)
    
 - [quick-start](https://docs.confluent.io/operator/current/co-quickstart.html)
-  
+  - [Troubleshoot](https://docs.confluent.io/operator/current/blueprints/cob-troubleshooting.html)
+
