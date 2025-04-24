@@ -3,6 +3,9 @@
 # Confluent Cloud
 [You cannot delete the last one environment.](https://docs.confluent.io/cloud/current/access-management/hierarchy/cloud-environments.html#delete-an-environment)
 
+# Stream processing
+SQL Workspace: the Notebook experience based on Apache Flink
+
 # Confluent Platform
 A non-SaaS, on-prem version.
 - As of Confluent Platform 7.5, ZooKeeper is deprecated for new deployments. Confluent recommends [KRaft mode](https://docs.confluent.io/platform/current/kafka-metadata/kraft.html#kraft-overview) for new deployments.
