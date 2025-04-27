@@ -1,0 +1,20 @@
+name: pulsar-standalone
+volumes:
+  pulsarconf:
+  pulsardata:
+services:
+  pulsar:
+    image: apachepulsar/pulsar:latest
+    ports:
+      - "6650:6650"
+      - "8080:8080"
+    volumes:
+      - pulsarconf:/pulsar/conf
+      - pulsardata:/pulsar/data
+    command: ["bin/pulsar", "standalone"]
+    healthcheck:
+      test: ["CMD", "bin/pulsar-admin", "brokers", "healthcheck"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 8s
