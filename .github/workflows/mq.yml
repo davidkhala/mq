@@ -5,16 +5,21 @@ on:
 jobs:
   mq:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        mq: [activemq, rabbitmq/container, rabbitmq/container/bitnami, solace]
     steps:
       - uses: actions/checkout@main
       - run: docker compose up -d
-        working-directory: activeMQ
-      - run: docker compose up -d
-        working-directory: rabbitmq/container
+        working-directory: ${{ matrix.mq }}
       
   broker:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        broker: [kafka/bitnami, pulsar, pulsar/standalone, confluent, confluent/all-in-one-kraft]
     steps:
       - uses: actions/checkout@main
       - run: docker compose up -d
-        working-directory: kafka/bitnami
+        working-directory: ${{ matrix.broker }}
+      

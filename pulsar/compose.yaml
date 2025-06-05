@@ -1,5 +1,4 @@
 name: pulsar-zookeeper
-version: "3"
 volumes:
   zookeeper:
   bookkeeper:
