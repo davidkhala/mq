@@ -1,15 +1,13 @@
 version: '3'
 
 services:
-  rabbitmq:
+  bitnami:
     image: 'bitnami/rabbitmq:latest' # see in https://hub.docker.com/r/bitnami/rabbitmq
     ports:
-      - 4369
-      - '5672:5672'
-      - 25672
+      - 5672
       - 15672
     volumes:
-      - 'rabbitmq:/bitnami/rabbitmq/mnesia'
+      - 'bitnami:/bitnami/rabbitmq/mnesia'
     environment:
       - RABBITMQ_MANAGEMENT_ALLOW_WEB_ACCESS=true
     healthcheck:
@@ -17,4 +15,4 @@ services:
       interval: 1s
     
 volumes:
-  rabbitmq:
+  bitnami:

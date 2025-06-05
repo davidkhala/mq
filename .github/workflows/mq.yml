@@ -10,9 +10,9 @@ jobs:
       - run: docker compose up -d
         working-directory: activeMQ
       - run: docker compose up -d
-        working-directory: rabbitmq
+        working-directory: rabbitmq/container
       
-  kafka:
+  broker:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@main

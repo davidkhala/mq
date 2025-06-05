@@ -9,11 +9,10 @@ services:
     ports:
       - "5672:5672"
       - "15672:15672"
-  rabbitmq-tls:
+  tls:
     image: davidkhala/rabbitmq
     hostname: amqps
     ports:
       - "5671:5671"
       - "15671:15671"
-      
 
