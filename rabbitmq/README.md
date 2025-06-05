@@ -1,7 +1,13 @@
+
 Default User Access
 
-- user `guest` with password `guest`
+- user `guest`
+- password `guest`
 - > By default, these credentials can only be used when connecting to the broker as localhost
+
+ports
+
+- 5672: amqp
 
 ## Configuration file
 >
