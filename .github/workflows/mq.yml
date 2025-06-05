@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        mq: [activemq, rabbitmq/container, rabbitmq/container/bitnami, solace]
+        mq: [activeMQ, rabbitmq/container, rabbitmq/container/bitnami, solace]
     steps:
       - uses: actions/checkout@main
       - run: docker compose up -d
@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        broker: [kafka/bitnami, pulsar, pulsar/standalone, confluent, confluent/all-in-one-kraft]
+        broker: [kafka/bitnami, pulsar, pulsar/standalone, confluent]
     steps:
       - uses: actions/checkout@main
       - run: docker compose up -d
