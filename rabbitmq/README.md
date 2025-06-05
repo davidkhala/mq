@@ -7,7 +7,13 @@ Default User Access
 
 ports
 
+- 4369：[Internal] Used for Erlang Port Mapper Daemon (epmd)
+  - epmd supports cluster nodes DNS and discovery
 - 5672: amqp
+- 5671: amqps
+- 15691: Prometheus endpoint (tls)
+- 15692: Prometheus endpoint
+- 25672: [Internal] Used for cluster node communication
 
 ## Configuration file
 >
