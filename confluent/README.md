@@ -1,3 +1,5 @@
+<img width="844" alt="image" src="https://github.com/user-attachments/assets/c7976033-bae3-47c2-823b-9dce3b00c20e" />
+
 # Confluent Cloud
 [You cannot delete the last one environment.](https://docs.confluent.io/cloud/current/access-management/hierarchy/cloud-environments.html#delete-an-environment)
 
