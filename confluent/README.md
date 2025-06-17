@@ -13,7 +13,8 @@ SQL Workspace: the Notebook experience based on Apache Flink
 
 # Confluent Platform
 A non-SaaS, on-prem version.
-- As of Confluent Platform 7.5, ZooKeeper is deprecated for new deployments. Confluent recommends [KRaft mode](https://docs.confluent.io/platform/current/kafka-metadata/kraft.html#kraft-overview) for new deployments.
+- As of Confluent Platform 7.5, ZooKeeper is deprecated for new deployments.
+- Confluent defaults [KRaft mode](https://docs.confluent.io/platform/current/kafka-metadata/kraft.html#kraft-overview) for new deployments since 7.4
 
 ## [installation](https://www.confluent.io/installation/)
 Confluent for Kubernetes (CFK): A cloud-native control plane for deploying and managing Confluent in private cloud environments through declarative API.

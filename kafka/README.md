@@ -6,12 +6,6 @@ Retention
 - Set globally or per topic
 - Data purged per segment (when expired)
 
-Producer Guarantees
-
-- Acks 0 (None): throw without catch
-- Acks 1 (Leader): when leader confirm
-- Acks -1 (All): when all living nodes confirm
-
 Delivery Guarantees
 
 - Exactly once: since 2017(spring), kafka 0.11

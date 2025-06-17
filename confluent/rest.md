@@ -1,0 +1,5 @@
+# Rest Proxy
+
+https://developer.confluent.io/get-started/rest/
+
+https://docs.confluent.io/platform/current/kafka-rest/api.html
