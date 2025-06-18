@@ -17,9 +17,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        broker: [kafka/bitnami, pulsar, pulsar/standalone, confluent]
+        broker: [kafka/bitnami, pulsar, pulsar/standalone]
     steps:
       - uses: actions/checkout@main
       - run: docker compose up -d
         working-directory: ${{ matrix.broker }}
-      
+  confluent:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+      - run: ./control.sh
+        working-directory: confluent/container/compose
