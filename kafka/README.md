@@ -23,3 +23,9 @@ Consumer Group
 No Encryption at Rest out of box
 
 - Solution: Full disk encryption or encrypt in app level
+
+Scale issues
+
+- Controller 不能 scale
+  - `KAFKA_CONTROLLER_QUORUM_VOTERS` must be hardcoded (static membership)
+  - issue remain in Confluent Platform.
