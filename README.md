@@ -6,5 +6,3 @@ Github Repository
 - https://github.com/davidkhala/node-mq
 - https://github.com/davidkhala/py-mq
 
-Wiki
-- https://github.com/davidkhala/aws-collection/wiki/SQS,-SNS,-Kinesis
